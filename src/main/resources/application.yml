@@ -16,7 +16,21 @@ spring:
     resources: # 指定静态资源的路径
         static-locations: classpath:/static/,classpath:/views/
 
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
+        publisherConfirms: true
+        publisherReturns: true
+        template:
+          mandatory: true
+        listener:
+          concurrency: 2
+          maxConcurrency: 2
+
 # Mybatis配置
 mybatis:
     typeAliasesPackage: com.dfmall.springboot_ssm.entity
     mapperLocations: classpath:mapper/*.xml
+
