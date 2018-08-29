@@ -17,4 +17,8 @@
         values(#{name, jdbcType = VARCHAR},#{age, jdbcType = INTEGER})
     </insert>
 
+    <select id="getInfo" resultType="java.util.Map">
+        select * from user where id in(1,2)
+    </select>
+
 </mapper>

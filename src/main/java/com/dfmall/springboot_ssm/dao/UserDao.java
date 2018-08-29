@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Project springboot_ssm.
@@ -16,7 +17,7 @@ import java.util.List;
  */
 
 @Mapper
-public interface UserDao {
+public interface UserDao extends BaseDao<User>{
 
     @Select("select * from user2 limit #{offset},#{limit}")
     List<User> getAllUser(Query query);
@@ -28,5 +29,7 @@ public interface UserDao {
 
     @Select("select * from user2")
     List<User> getUsers();
+
+    List<Map<String, String>> getInfo();
 
 }
