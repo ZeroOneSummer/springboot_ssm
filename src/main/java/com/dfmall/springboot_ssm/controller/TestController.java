@@ -26,13 +26,19 @@ public class TestController {
     private UserDao userDao;
 
     @RequestMapping("/info")
-    public String getTestInfo(){
+    public String getTestInfo() {
         List<Map<String, String>> lmap = userDao.getInfo();
         log.info("result: {} ", lmap);
         for (Map<String, String> map : lmap) {
             log.info("-- " + map.get("address") + "|" + map.get("name") + "|" + map.get("stuNo"));
         }
         return JSON.toJSONString(lmap);
+    }
+
+    @RequestMapping("/sigle")
+    public String getSigletonList() {
+        List<String> list = userDao.getSigletonList();
+        return JSON.toJSONString(list);
     }
 
 }

@@ -32,4 +32,7 @@ public interface UserDao extends BaseDao<User>{
 
     List<Map<String, String>> getInfo();
 
+    @Select("select name from user")
+    List<String> getSigletonList();
+
 }
